@@ -10,9 +10,7 @@ feeds:
   - name: small
     uri: https://github.com/kenzok8/small.git
     branch: master
-  - name: small8
-    uri: https://github.com/kenzok8/small-package.git
-    branch: main
+
 packages:
   - luci-app-ssr-plus
   - luci-app-ddns
