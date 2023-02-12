@@ -4,6 +4,15 @@ feeds:
   - name: helloworld
     uri: https://github.com/fw876/helloworld.git
     branch: master
+  - name: kenzo
+    uri: https://github.com/kenzok8/openwrt-package.git
+    branch: master
+  - name: small
+    uri: https://github.com/kenzok8/small.git
+    branch: master
+  - name: small8
+    uri: https://github.com/kenzok8/small-package.git
+    branch: main
 packages:
   - luci-app-ssr-plus
   - luci-app-ddns
@@ -18,8 +27,12 @@ packages:
   - wireguard
   - luci-app-eqos
   - wireguard-tools
-
-
+  - luci-app-openclash
+  - luci-app-unblockneteasemusic
+  - luci-theme-argonne
+  - luci-app-passwall
+  - luci-app-adguardhome
+  - luci-app-advanced
 
 diffconfig: |
   CONFIG_PACKAGE_wpad-basic=n
