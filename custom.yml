@@ -39,3 +39,6 @@ diffconfig: |
   CONFIG_LUCI_LANG_zh_Hans=y
   CONFIG_BUSYBOX_CUSTOM=y
   CONFIG_BUSYBOX_CONFIG_FEATURE_FLOAT_SLEEP=y
+
+permissions:
+  contents: write
