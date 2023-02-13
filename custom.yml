@@ -5,7 +5,7 @@ feeds:
     uri: https://github.com/fw876/helloworld.git
     branch: master
   - name: kenzo
-    uri: https://github.com/kenzok8/openwrt-package.git
+    uri: https://github.com/kenzok8/openwrt-packages.git
     branch: master
   - name: small
     uri: https://github.com/kenzok8/small.git
