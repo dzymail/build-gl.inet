@@ -31,6 +31,9 @@ packages:
   - luci-app-passwall
   - luci-app-adguardhome
   - luci-app-advanced
+  - luci-app-ssr-plus
+  - luci-app-vssr
+  - chinadns-ng
 
 diffconfig: |
   CONFIG_PACKAGE_wpad-basic=n
