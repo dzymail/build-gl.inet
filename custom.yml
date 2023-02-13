@@ -41,4 +41,13 @@ diffconfig: |
   CONFIG_BUSYBOX_CONFIG_FEATURE_FLOAT_SLEEP=y
 
 permissions:
+  actions: write
+  checks: write
   contents: write
+  deployments: write
+  issues: write
+  packages: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
