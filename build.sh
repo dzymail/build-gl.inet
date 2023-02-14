@@ -8,7 +8,7 @@ if [ ! -e "$base" ]; then
     echo "Please enter base folder"
     exit 1
 else
-    if [ ! -d $base ]; then 
+    if [ ! -d $base ]; then
         echo "Openwrt base folder not exist"
         exit 1
     fi
@@ -23,7 +23,7 @@ if [ ! -n "$ui" ]; then
 fi
 echo "Start..."
 
-#clone source tree 
+#clone source tree
 git clone https://github.com/gl-inet/gl-infra-builder.git $base/gl-infra-builder
 cp -r custom/  $base/gl-infra-builder/feeds/custom/
 cp -r *.yml $base/gl-infra-builder/profiles
@@ -37,10 +37,10 @@ function build_firmware(){
     # fix helloword build error
     rm -rf feeds/packages/lang/golang
     svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
-    #install feed 
+    #install feed
     ./scripts/feeds update -a && ./scripts/feeds install -a && make defconfig
-    #build 
-    if [[ $need_gl_ui == true  ]]; then 
+    #build
+    if [[ $need_gl_ui == true  ]]; then
         make -j$(expr $(nproc) + 1) GL_PKGDIR=~/glinet/$ui_path/ V=s
     else
         make -j$(expr $(nproc) + 1)  V=s
@@ -59,7 +59,7 @@ function copy_file(){
     return
 }
 
-case $profile in 
+case $profile in
     target_wlan_ap-gl-ax1800|\
     target_wlan_ap-gl-axt1800|\
     target_wlan_ap-gl-ax1800-5-4|\
@@ -70,7 +70,7 @@ case $profile in
             python3 setup.py -c configs/config-wlan-ap.yml
         fi
         ln -s $base/gl-infra-builder/wlan-ap/openwrt ~/openwrt && cd ~/openwrt
-        if [[ $ui == true  ]]; then 
+        if [[ $ui == true  ]]; then
             ./scripts/gen_config.py $profile glinet_depends glinet_nas custom
             git clone https://github.com/gl-inet/glinet4.x.git ~/glinet
         else
@@ -92,9 +92,9 @@ case $profile in
     target_mt7981_gl-mt2500|\
     target_mt7981_gl-mt3000)
         python3 setup.py -c configs/config-mt798x-7.6.6.1.yml
-        ln -s $base/gl-infra-builder/mt7981 ~/openwrt && cd ~/openwrt    
+        ln -s $base/gl-infra-builder/mt7981 ~/openwrt && cd ~/openwrt
         if [[ $ui == true  ]]; then
-            ./scripts/gen_config.py $profile glinet_depends glinet_nas custom
+            ./scripts/gen_config.py $profile glinet_depends glinet_common glinet_nas glinet_snapshot custom
             git clone https://github.com/gl-inet/glinet4.x.git ~/glinet
             if [[ $profile == *mt3000* ]]; then
                 cp -rf ~/glinet/pkg_config/gl_pkg_config_mt7981_mt3000.mk ~/glinet/mt7981/gl_pkg_config.mk
@@ -120,4 +120,3 @@ case $profile in
         build_firmware && copy_file ~/openwrt/bin/targets/*/*
     ;;
 esac
-
