@@ -25,11 +25,25 @@ packages:
   - wireguard-tools
   - luci-app-openclash
   - luci-app-unblockneteasemusic
-  - luci-theme-argonne
   - luci-app-passwall
   - luci-app-adguardhome
   - luci-app-advanced
   - luci-app-ssr-plus
+  - gl-sdk4-ui-adguardhome
+  - gl-sdk4-ui-adminpw
+  - gl-sdk4-ui-advanced
+  - gl-sdk4-ui-parentalcontrol
+  - gl-sdk4-ui-zerotierview
+  - gl-sdk4-ui-tailscaleview
+  - gl-sdk4-ui-multiwan
+  - gl-sdk4-ui-parentalcontrol
+  - gl-sdk4-tor
+  - gl-sdk4-mwan3
+  - gl-sdk4-zerotier
+  - gl-sdk4-tailscale
+  - gl-sdk4-cloud-batch-manage
+  - gl-sdk4-tailscale
+  - kmod-gl-sdk4-parental-control
 
 diffconfig: |
   CONFIG_PACKAGE_wpad-basic=n
