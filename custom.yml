@@ -8,6 +8,8 @@ feeds:
   - name: small
     uri: https://github.com/kenzok8/small.git
     branch: master
+  - name: glinet2
+    path: ../feeds_dir/glinet
 
 packages:
   - luci-app-ssr-plus
